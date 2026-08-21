@@ -22,6 +22,13 @@ This section is what a reviewer actually reads.)_
 _(Scope boundaries, stated deliberately. A tool with honest limits reads better
 than one that implies it handles everything.)_
 
+## Demo
+
+_(A 60-second screen recording goes here once the tool works — `demo.mp4` or an
+animated GIF, committed alongside this README and embedded above the setup
+instructions. Recorded rather than hosted: costs nothing to serve, cannot be
+abused, and still works after an API key is rotated.)_
+
 ## Running it
 
 ```bash

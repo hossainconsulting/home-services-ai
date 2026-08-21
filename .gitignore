@@ -31,3 +31,7 @@ dist/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# ── Demo recordings ARE committed on purpose ─────────────────────────────────
+# demo.mp4 / demo.gif per project is the deliverable. Do not ignore them.
+# Keep them small - trim to 60s, 1280x720, and compress before committing.

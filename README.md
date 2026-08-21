@@ -52,16 +52,72 @@ in the committed transcripts.
 
 ---
 
-## Running anything here
+## Demos are recorded, not hosted
 
-Each project has its own README and setup. You will need an Anthropic API key:
+Every project here is demonstrated with a **short screen recording embedded in its
+README**, not a live hosted endpoint. That is a deliberate decision, not a
+shortcut:
+
+- A recording shows the tool working in about sixty seconds, which is what a
+  reviewer actually wants. Almost nobody wants to *use* a stranger's demo.
+- It costs nothing to serve and cannot be abused.
+- It keeps working after an API key is rotated, a model is renamed, or a
+  dependency drifts — the three things that quietly kill hosted demos.
+
+If a live demo is ever added, it will ask the visitor for their own API key,
+held in the browser and never stored.
+
+## Running it yourself
+
+Each project has its own README and setup. You supply your own Anthropic API key:
 
 ```bash
 export ANTHROPIC_API_KEY="sk-ant-..."
 ```
 
-Never commit it. `.env` and `*.key` are gitignored, and an API key that reaches
-git history is a key that has to be rotated.
+**You pay for your own calls.** Cloning this repository costs nothing; running it
+bills your account, not mine. The tasks here are small — roughly 650 tokens in and
+250 out per call, which is about **$0.002 on Haiku 4.5** or **$0.009 on Opus 5**.
+A full eval sweep across 50 cases and three projects is about **30 cents** to
+**$1.30** depending on model.
+
+Set a spend limit in the [Anthropic Console](https://console.anthropic.com) before
+you run anything. A runaway loop is the only way this gets expensive, and a hard
+cap makes that impossible.
+
+**Never commit your key.** `.env` and `*.key` are gitignored. A key that reaches
+git history has to be *rotated*, not merely deleted — the commit survives in every
+clone and in the reflog.
+
+### This costs money — a little
+
+A Claude Pro or Max subscription covers *using* Claude Code. It does **not** cover
+API calls made by the code in this repository. Those are metered pay-as-you-go,
+billed per token, no free tier.
+
+At current rates — Haiku 4.5 at $1/$5 per million input/output tokens, Opus 5 at
+$5/$25 — the tasks here are small. A typical call is roughly 650 tokens in and 250
+out:
+
+| Model | Per call | Full eval run (50 cases × 3 projects) |
+|---|---|---|
+| Haiku 4.5 | ~$0.002 | ~$0.30 |
+| Opus 5 | ~$0.009 | ~$1.30 |
+
+**Realistic total for the whole 10-week track: $10–40**, including iteration and
+repeated eval runs.
+
+Four habits keep it there:
+
+1. **Set a spend limit in the Anthropic Console before writing any code.** A
+   runaway loop is the only way this gets expensive; a hard cap makes that
+   impossible.
+2. **Use the Batch API for evals** — 50% cheaper, and eval runs are not
+   latency-sensitive.
+3. **Cache stable prompts.** Cached input costs roughly a tenth. Project 1's
+   system prompt is byte-identical on every call.
+4. **Route by difficulty.** Project 2 exists partly to measure where Haiku is
+   genuinely sufficient and Opus is waste.
 
 ---
 
