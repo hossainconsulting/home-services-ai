@@ -1,0 +1,33 @@
+# ── Secrets. An API key in git history is a key you must rotate. ──────────────
+.env
+.env.*
+*.key
+**/secrets*.json
+
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# ── Node ─────────────────────────────────────────────────────────────────────
+node_modules/
+dist/
+*.tsbuildinfo
+
+# ── Local data ───────────────────────────────────────────────────────────────
+*.sqlite
+*.sqlite3
+*.db
+
+# ── Eval output is COMMITTED on purpose (see 05-evals/README) ────────────────
+# Results over time are the artefact. Do not ignore them.
+
+# ── Editor / OS ──────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
