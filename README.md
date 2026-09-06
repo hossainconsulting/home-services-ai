@@ -131,6 +131,14 @@ Four habits keep it there:
 
 ---
 
+## Working notes
+
+**[Analysis prompts](docs/analysis-prompts.md)** — a pruned and rewritten set of analysis
+prompts for trades work and Salesforce consulting, adapted from a circulated list of
+twenty. Six cut, one repurposed, five added. The change that matters: every prompt now
+gives the model permission to find nothing, because a prompt that asks for "the top 3 to 5
+root causes" gets three to five whether the evidence supports one or none.
+
 ## Related work
 
 The Salesforce side of the same problem — CRM implementations for the same kind of
