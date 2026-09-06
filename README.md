@@ -139,6 +139,28 @@ twenty. Six cut, one repurposed, five added. The change that matters: every prom
 gives the model permission to find nothing, because a prompt that asks for "the top 3 to 5
 root causes" gets three to five whether the evidence supports one or none.
 
+## For recruiters and agencies
+
+**What this repository evidences:** Claude API application design for trades businesses —
+structured output that is allowed to say "I don't know", one guarded write path over MCP,
+an agent that knows when to hand off to a human, and an eval harness that grades the rest.
+
+**State as at 06/09/2026:** Designs and two design notes are written; no tool has code
+behind it yet, and the status table above says so. The shipped Claude application in this
+program is the assistant on the portfolio site — a Cloudflare Worker with server-side key
+handling, request validation and a single lead-capture tool — whose source is in the
+[`portfolio`](https://github.com/hossainconsulting/portfolio) repository.
+
+**Read these first:**
+
+1. [`docs/rag-maturity.md`](docs/rag-maturity.md) — the seven-level ladder and the conclusion that four of these five tools should not be RAG systems
+2. [`docs/analysis-prompts.md`](docs/analysis-prompts.md) — a pruned prompt library where every prompt is allowed to find nothing
+3. [`03-jobs-mcp/README.md`](03-jobs-mcp/README.md) — the one-write-tool threat model, stated before code
+
+**How to verify:** every claim in the status table is one a reviewer can check by opening
+the directory. The [skill-to-evidence map](https://portfolio.hossainconsulting.com/#evidence) on the portfolio shows where each
+credential is applied, and the [hiring page](https://portfolio.hossainconsulting.com/#hire) says what I am open to.
+
 ## Related work
 
 The Salesforce side of the same problem — CRM implementations for the same kind of
