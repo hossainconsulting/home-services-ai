@@ -52,6 +52,16 @@ in the committed transcripts.
 
 ---
 
+## Design notes
+
+**[RAG maturity](docs/rag-maturity.md)** — the seven-level retrieval ladder (keyword →
+vector → hybrid → rerank → advanced → graph → agentic), and where these five tools
+honestly sit against it. Short version: four of the five are not RAG systems at all,
+and the fifth should stop climbing at about level two. Knowing which rung your problem
+needs is the harder half of the skill.
+
+---
+
 ## Demos are recorded, not hosted
 
 Every project here is demonstrated with a **short screen recording embedded in its
