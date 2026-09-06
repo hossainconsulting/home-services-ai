@@ -4,102 +4,86 @@ This file provides guidance to Claude Code (claude.ai/code) when working in this
 
 ## What this is
 
-Five AI tools for trades and home-services businesses — plumbing, electrical,
-HVAC, solar, appliance repair — built toward the **Claude Certified Developer —
-Foundations** credential.
+Five AI tools for trades and home-services businesses, built while working toward the
+**Claude Certified Developer — Foundations** credential. These are working tools built
+against realistic scenarios, not client work, and no real customer data appears here.
 
-> These are working tools built against realistic scenarios, **not client work**.
-> No real customer data appears anywhere in this repository.
+**As of this file, every project is `Not started` — there is no code in this repository
+yet.** All five directories contain a README template and a `.gitkeep`. That is the
+honest state and `README.md` says so in its status table. Keep it accurate: when a
+project ships, update its status in the root table and in its own README, and do not
+mark anything shipped that a reviewer cannot run.
 
-| # | Project | Weeks | Exam domains |
+## The five projects
+
+| # | Directory | What it does | Exam domains |
 |---|---|---|---|
-| 1 | `01-quote-triage/` | 1–2 | Claude API mechanics, prompt engineering, structured output |
-| 2 | `02-notes-to-invoice/` | 3–4 | Tool use, model selection, cost management |
-| 3 | `03-jobs-mcp/` | 5–6 | MCP servers, security, auth |
-| 4 | `04-after-hours-agent/` | 7–8 | Agent SDK, multi-turn, context engineering |
-| 5 | `05-evals/` | 9–10 | Evals, security review, cost reporting |
+| 1 | `01-quote-triage/` | Messy enquiry → structured job spec, explicit about what it still needs to ask | API mechanics, prompt engineering, structured output |
+| 2 | `02-notes-to-invoice/` | End-of-day notes → line-itemed draft invoice, priced from a rates table | Tool use, model selection, cost management |
+| 3 | `03-jobs-mcp/` | Jobs/customer database over MCP — read tools plus exactly one guarded write | MCP servers, security, auth |
+| 4 | `04-after-hours-agent/` | Triage an 11pm message, book via MCP or escalate to a human | Agent SDK, multi-turn, context engineering |
+| 5 | `05-evals/` | Grades 1–4 against a fixed case set — accuracy, cost, regressions | Evals, security review, cost reporting |
 
-Each project takes one place a trades business loses money: enquiries never
-quoted, work never invoiced, jobs booked badly, calls missed after hours. The
-fifth proves the other four work.
+Project 5 is what makes the other four credible. Build it as the case set grows, not at
+the end.
 
-## Current state: nothing is built
+## The three design decisions that carry this repo
 
-**All five projects are `Not started`.** Every directory holds a README and a
-`.gitkeep`. The root README's status table says so and must keep saying so —
-update a row only when there is code behind it. Do not write documentation,
-demo links or status claims for work that does not exist.
+These are stated in `README.md` and are the ones a reviewer will actually read. Do not
+quietly design around them:
 
-Each project README is a template with three sections deliberately left empty:
-*The problem this solves*, *Design decisions*, *What it does not do*. They are
-meant to be filled in **before the code**, not reverse-engineered from it.
+- **Project 1 — the model is allowed to say it doesn't know.** A triage tool that invents
+  a suburb is worse than one that returns "I need to ask the customer where they are."
+  Missing information is a first-class output, not a failure mode.
+- **Project 3 — one write tool, and it validates everything.** Read tools are easy. The
+  work is designing a booking path an agent cannot abuse: no double-booking, nothing in
+  the past, no unqualified technician. The threat model gets documented, not implied.
+- **Project 4 — knowing when to stop.** Gas leak, live wiring, water through a ceiling:
+  the correct response is a human, immediately. The escalation cases belong in committed
+  transcripts, not in prose describing them.
 
-## The three design decisions that define this repo
+## README discipline
 
-These are already committed to in the README. Hold to them in review:
+Each project README ships with placeholder sections in italics. They are a contract,
+not decoration:
 
-**Project 1 — the model is allowed to say it doesn't know.** A triage tool that
-invents a suburb is worse than one that returns "I need to ask the customer where
-they are." **Missing information is a first-class output, not a failure.** Any
-schema or prompt that forces a value for an unknown field is wrong.
+- **The problem this solves** — written *before* any code.
+- **Design decisions** — only the ones with more than one defensible answer.
+- **What it does not do** — scope boundaries stated deliberately.
+- **Demo** — a ~60-second screen recording committed alongside the README. Recorded, not
+  hosted: it costs nothing to serve, cannot be abused, and survives a rotated key or a
+  renamed model.
+- **Results** — real numbers only. **No numbers until there are numbers.** Do not fill
+  this section with estimates, and do not leave an estimate in a place a reader will
+  take for a measurement.
 
-**Project 3 — one write tool, and it validates everything.** Read tools are easy.
-The work is designing a booking path an agent cannot abuse: no double-booking,
-nothing in the past, no unqualified technician. The threat model gets **written
-down**, not implied. Adding a second write tool is a design change, not a
-convenience.
+## Cost discipline
 
-**Project 4 — knowing when to stop.** Gas leak, live wiring, water through a
-ceiling: the correct response is a human, immediately. An agent that helpfully
-books a Tuesday slot for a gas leak is a liability. The escalation cases live in
-committed transcripts and are part of the test set, not illustrations.
+Running this code bills the Anthropic API — a Claude Pro or Max subscription does not
+cover it. Budget for the whole track is **$10–40**. Four habits keep it there:
 
-## Cost discipline is part of the assessment
+1. A spend limit set in the Anthropic Console **before** writing code. A runaway loop is
+   the only way this gets expensive.
+2. The **Batch API for evals** — 50% cheaper, and eval runs are not latency-sensitive.
+3. **Prompt caching** for stable system prompts. Project 1's is byte-identical per call.
+4. **Route by difficulty.** Project 2 exists partly to measure where Haiku 4.5 is
+   genuinely sufficient and Opus 5 is waste.
 
-API calls here are **metered pay-as-you-go and are not covered by a Claude Pro or
-Max subscription**. The README carries current per-call and per-eval-run figures;
-read them there rather than restating them, since rates drift.
+Current rates for reference: Haiku 4.5 $1/$5 per million input/output tokens, Opus 5
+$5/$25. Before quoting pricing or model IDs in code or docs, check them — do not write
+them from memory.
 
-Four habits keep the whole ten-week track in the $10–40 range:
+## Never commit
 
-1. **A spend limit is set in the Anthropic Console before any code is written.** A
-   runaway loop is the only way this gets expensive; a hard cap makes it impossible.
-2. **Evals go through the Batch API** — half price, and eval runs are not
-   latency-sensitive.
-3. **Stable prompts are cached.** Project 1's system prompt is byte-identical on
-   every call.
-4. **Route by difficulty.** Project 2 exists partly to measure where the cheaper
-   tier is genuinely sufficient and the expensive one is waste. Do not default to
-   the largest model; make the routing decision measurable and record it.
+`ANTHROPIC_API_KEY` or any other credential. `.env` and `*.key` are gitignored. A key
+that reaches git history has to be **rotated**, not deleted — the commit survives in
+every clone and in the reflog.
 
-Cost per run is a reported metric in Project 5, not an afterthought.
+## Agent workflow
 
-## Keys and secrets
-
-```bash
-export ANTHROPIC_API_KEY="sk-ant-..."
-```
-
-`.env` and `*.key` are gitignored. **Never commit a key.** A key that reaches git
-history has to be *rotated*, not merely deleted — the commit survives in every
-clone and in the reflog. Never read or echo `.env` contents into the transcript.
-
-## Demos are recorded, not hosted
-
-Every project is demonstrated with a **short screen recording embedded in its
-README**, not a live endpoint. Deliberate: a recording shows the tool working in
-about sixty seconds, costs nothing to serve, cannot be abused, and keeps working
-after a key is rotated or a dependency drifts. Do not propose deploying a hosted
-demo. If one is ever added it asks the visitor for their own API key, held in the
-browser and never stored.
-
-## Working here
-
-- No language or framework is committed to yet — the first project chooses, and
-  the rest should follow it rather than diverge.
-- When writing against the Claude API or building the MCP server, check current
-  API surface and model options rather than working from memory; both move.
-- The `mcp-builder` skill is the right reference for Project 3, and `skill-creator`
-  for anything that becomes a repeated workflow.
-- Related work: the Salesforce side of the same problem is in the sibling
-  engagement repositories and at portfolio.hossainconsulting.com.
+Superpowers is expected to be installed as a **user-level plugin**
+(`/plugin install superpowers@claude-plugins-official`), not vendored into this repo.
+This is the repo in the program where it earns the most: there is no code yet, so
+brainstorming → plan → red/green TDD applies from the first line. There is currently no
+`package.json` and no test runner — the first project to ship should add one, because
+the eval harness in project 5 and the TDD workflow both need something to run.
