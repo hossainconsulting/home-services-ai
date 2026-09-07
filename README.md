@@ -119,6 +119,9 @@ Four habits keep it there:
 4. **Route by difficulty.** Project 2 exists partly to measure where Haiku is
    genuinely sufficient and Opus is waste.
 
+The reasoning behind these, and the levers that come *before* choosing a cheaper model,
+are in [optimization-playbook.md](optimization-playbook.md).
+
 ---
 
 ## Related work
