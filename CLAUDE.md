@@ -73,6 +73,13 @@ Current rates for reference: Haiku 4.5 $1/$5 per million input/output tokens, Op
 $5/$25. Before quoting pricing or model IDs in code or docs, check them — do not write
 them from memory.
 
+`optimization-playbook.md` holds the worked version of this: the nine-strategy LLM
+optimization checklist sorted by what earns its complexity at this size, with the API
+mechanics (caching prefix rules, batch `custom_id` ordering, `output_config.effort`,
+`task_budget` vs `max_tokens`) verified on 07/09/2026. Two things it corrects: the free
+levers come before model choice, not after — and Sonnet 5 at $2/$10 is the middle rung
+missing from the Haiku-or-Opus framing above.
+
 ## Never commit
 
 `ANTHROPIC_API_KEY` or any other credential. `.env` and `*.key` are gitignored. A key
