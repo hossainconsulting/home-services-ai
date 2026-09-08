@@ -32,6 +32,25 @@ it, and this table will say so until it does.
 
 ---
 
+## Beyond the five: Content DNA Studio
+
+[`content-dna-studio/`](content-dna-studio/) is a different kind of project: a
+small SaaS rather than a tool. Paste transcripts from any YouTube channel and it
+runs eight analyses over them (channel DNA, hook swipe file, content pillars,
+audience language, viral patterns, a 90-day calendar, a repurposing package, a
+competitor gap map), then turns any transcript or report into platform-native
+copy for Facebook, Instagram, X, LinkedIn, TikTok, YouTube, Google Business
+Profile, Pinterest, SEO and Google Ads. Accounts, workspaces, plan limits,
+usage metering, streaming output, one SQLite file, no build step.
+
+It exists because a consulting practice needs an audience, and the fastest way
+to learn how a niche talks is to decode the people it already listens to. The
+prompt design is the interesting part: the transcript corpus is cached across
+all eight analyses, every claim must cite a title and timestamp, and anything
+the transcripts do not support has to be labelled as a recommendation.
+
+---
+
 ## The bits worth looking at
 
 Rather than a feature list, the three decisions in here that were actually hard:
