@@ -121,6 +121,25 @@ Four habits keep it there:
 
 ---
 
+## Council of advisors (`/council`)
+
+A Claude Code skill in `.claude/skills/council/` for the decisions *around* the
+tools rather than the tools themselves: is this idea worth building, which of
+two options, what price, what to post. Ten templates, each convening five named
+advisors who assess independently, argue, and close with one verdict.
+
+```
+/council validate-idea   an after-hours triage agent for one-van plumbers in western Sydney
+/council choose          A: ship project 3 first   B: ship project 4 first
+```
+
+The skill's rules are the point: advisors may not invent numbers, at least one
+must find the assumption the user has taken for granted, and every plan has to
+be cheap enough to start this week. Copy the folder to `~/.claude/skills/` to
+use it outside this repo.
+
+---
+
 ## Related work
 
 The Salesforce side of the same problem — CRM implementations for the same kind of
