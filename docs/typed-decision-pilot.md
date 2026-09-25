@@ -39,3 +39,23 @@ Record selected values, option probabilities if supplied, model/version, timesta
 5. Only then decide whether an API dependency offers enough benefit for this project. Document any provider version, privacy review and spending approval.
 
 **Sources:** [TypeSafe AI introduction](https://typesafe.ai/blog/introducing-system-one-models-and-jev), [TypeSafe workflow evaluations](https://evals.typesafe.ai/). Vendor material explains the proposed capability; portfolio measurements remain to be collected.
+
+## Agent-loop assessment from the second infographic
+
+The nine examples in the second image are possible decision points, not a requirement to add nine model calls to every turn. Apply them selectively:
+
+| Image decision | Home Services AI application | Status or boundary |
+| --- | --- | --- |
+| Input screening | Treat suspicious text as untrusted; test injection examples in Eval Harness | Classifier may flag cases, but cannot be the sole injection or safety barrier |
+| Retrieval decision | Retrieve approved job/rate/policy context only when the task needs it | Candidate for later evaluation; authorization and source scoping remain in code |
+| Composite scoring | Rank non-safety operational priority from separately defined signals | Defer until weights, labels and benefit are specified; safety escalation is a hard rule |
+| Tool call gating | Check permission, schema, user confirmation and business policy before Jobs MCP writes | Deterministic enforcement; model advice cannot authorize a write |
+| Stop check | Detect likely completion of a bounded task | Optional hint; code also enforces maximum turns, timeout and final state |
+| Model routing | Select an appropriate model for extraction or drafting after measuring quality and total cost | Later optimization; no automatic provider switching now |
+| Grounding check | Check whether quote claims have supporting source records | Use source references and deterministic field validation; classifier can flag review cases |
+| Memory write filter | Propose whether task context is useful to retain | Existing Codex memory governance controls persistence; no model can write it unaudited |
+| Confidence handoff | Route ambiguous classifications to clarification or human review | Measure calibration on labelled cases; CEO approval still applies to external actions |
+
+The image's examples of blocking an injection at probability 0.94, approving a tool call, or acting on a refund at a fixed confidence threshold are illustrations only. They do not establish safe thresholds or authorization for this portfolio. Dates, counting and invoice arithmetic belong in code; open-ended customer writing belongs in a reviewed generation step.
+
+**Next implementation slice:** Write the Quote Triage synthetic evaluation set and deterministic routing baseline first. Add Jev as a candidate only after data-flow, access and spending review. In the fictional Meridian Field Services Agentforce scenario, cite this pilot as an architectural option; use Salesforce-native permissions, Flow validation and human escalation as the actual controls. The Salesforce Integration Lab can later test a narrow API adapter if the pilot wins its comparison.
