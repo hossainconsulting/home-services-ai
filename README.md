@@ -85,6 +85,14 @@ guarantee that unexpected charges are impossible.
 Keep API credentials out of source control, screenshots, recordings and
 logs. If a credential is committed, revoke or rotate it promptly.
 
+## Working notes
+
+**[Analysis prompts](docs/analysis-prompts.md)** — a pruned and rewritten set of analysis
+prompts for trades work and Salesforce consulting, adapted from a circulated list of
+twenty. Six cut, one repurposed, five added. The change that matters: every prompt now
+gives the model permission to find nothing, because a prompt that asks for "the top 3 to 5
+root causes" gets three to five whether the evidence supports one or none.
+
 ## Related work
 
 The Salesforce side of this portfolio is available at
