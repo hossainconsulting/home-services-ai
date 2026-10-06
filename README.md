@@ -10,6 +10,7 @@ appliance repair.
 
 **Built by:** [Hemayet Hossain](https://github.com/hossainconsulting) · Sydney, Australia
 **Portfolio:** [portfolio.hossainconsulting.com](https://portfolio.hossainconsulting.com)
+**Lab:** working copy maintained on `agency-dev` (Debian 12, VirtualBox VM on my own hardware). `agency-dev` is my role name for the Debian lab.
 
 ## Current status
 
