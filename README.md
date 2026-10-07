@@ -106,3 +106,7 @@ writing and documentation. Commits it co-authored carry a
 Hemayet Hossain remains the project owner and decision-maker. These credits do
 not represent separate GitHub accounts or collaborator invitations, and do
 not change existing authorship, licensing or project completion claims.
+
+## Design notes
+
+[RAG maturity assessment](docs/rag-maturity.md) records the original design analysis of retrieval choices for the five proposed tools. It grades designs, not running implementations. Its API and pricing references are historical and require rechecking before implementation.
