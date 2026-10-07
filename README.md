@@ -122,3 +122,15 @@ not change existing authorship, licensing or project completion claims.
 ## Optimization planning
 
 [optimization-playbook.md](optimization-playbook.md) preserves the original optimization analysis and its dated API/pricing references. Reverify those references before implementation; no savings or performance results have been measured by this conflict resolution. Measure cost per completed task, including retries, against evaluation quality.
+
+---
+
+## Connect
+
+Built by **Hemayet Hossain**, Sydney, Australia. The portfolio links self-directed projects, dated evidence and credential records. Project status is documented separately from planned scope.
+
+[Portfolio](https://portfolio.hossainconsulting.com/?utm_source=github&utm_medium=readme&utm_campaign=home-services-ai) ·
+[All links](https://portfolio.hossainconsulting.com/links) ·
+[GitHub](https://github.com/hossainconsulting) ·
+[LinkedIn](https://www.linkedin.com/company/hossain-consulting) ·
+[Instagram](https://www.instagram.com/hossainconsulting/)
