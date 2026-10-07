@@ -10,6 +10,7 @@ appliance repair.
 
 **Built by:** [Hemayet Hossain](https://github.com/hossainconsulting) · Sydney, Australia
 **Portfolio:** [portfolio.hossainconsulting.com](https://portfolio.hossainconsulting.com)
+**Lab:** working copy maintained on `paperclip-dev` (Fedora Server 44, VirtualBox VM on my own hardware). `paperclip-dev` is my lab name for the Fedora Server VM.
 
 ## Current status
 
