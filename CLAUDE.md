@@ -18,3 +18,9 @@ Estimate and limit API spend before runs. Verify current provider controls, pric
 Never commit credentials, key files or environment secrets, or echo them into transcripts. Rotate any exposed key. Recorded demonstrations are the intended presentation format; a Git push does not authorise a hosted deployment.
 
 .claude/settings.json combines the existing marketplace/plugin configuration with the branch permission lists. Parsing it does not prove plugin installation or runtime permission enforcement. docs/fde-roadmap.md is historical planning guidance, not proof that its skills gaps are closed.
+
+## Optimization planning
+
+[optimization-playbook.md](optimization-playbook.md) preserves the original optimization analysis and its dated API/pricing references. Reverify those references before implementation; no savings or performance results have been measured by this conflict resolution. Measure cost per completed task, including retries, against evaluation quality.
+
+Results sections must contain actual measured results, with test setup and date. Build the evaluation case set alongside implementation. If Superpowers is used, keep it as user-level tooling; installation was not checked here, and no plugin is installed by this documentation change.

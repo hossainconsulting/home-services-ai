@@ -118,3 +118,7 @@ not change existing authorship, licensing or project completion claims.
 ## Design notes
 
 [RAG maturity assessment](docs/rag-maturity.md) records the original design analysis of retrieval choices for the five proposed tools. It grades designs, not running implementations. Its API and pricing references are historical and require rechecking before implementation.
+
+## Optimization planning
+
+[optimization-playbook.md](optimization-playbook.md) preserves the original optimization analysis and its dated API/pricing references. Reverify those references before implementation; no savings or performance results have been measured by this conflict resolution. Measure cost per completed task, including retries, against evaluation quality.
