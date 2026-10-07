@@ -111,9 +111,7 @@ root causes" gets three to five whether the evidence supports one or none.
 
 ## For recruiters and agencies
 
-**What this repository evidences:** Claude API application design for trades businesses —
-structured output that is allowed to say "I don't know", one guarded write path over MCP,
-an agent that knows when to hand off to a human, and an eval harness that grades the rest.
+**What this repository evidences:** This repository documents designs for five proposed trades tools and includes Content DNA Studio application source and tests. The proposed MCP booking path, after-hours agent and evaluation harness are not implemented. Content DNA Studio’s live API behavior remains unverified.
 
 **Current evidence:** The status table records the dated planning/scaffold baseline.
 Inspect the project directories and dated evidence before treating any tool as implemented
