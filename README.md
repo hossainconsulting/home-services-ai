@@ -93,6 +93,28 @@ twenty. Six cut, one repurposed, five added. The change that matters: every prom
 gives the model permission to find nothing, because a prompt that asks for "the top 3 to 5
 root causes" gets three to five whether the evidence supports one or none.
 
+## For recruiters and agencies
+
+**What this repository evidences:** Claude API application design for trades businesses —
+structured output that is allowed to say "I don't know", one guarded write path over MCP,
+an agent that knows when to hand off to a human, and an eval harness that grades the rest.
+
+**Current evidence:** The status table records the dated planning/scaffold baseline.
+Inspect the project directories and dated evidence before treating any tool as implemented
+or tested. The related portfolio assistant's source is in the
+[`portfolio`](https://github.com/hossainconsulting/portfolio) repository; this section
+does not establish its deployment or live behaviour.
+
+**Read these first:**
+
+1. [`docs/rag-maturity.md`](docs/rag-maturity.md) — the seven-level ladder and the conclusion that four of these five tools should not be RAG systems
+2. [`docs/analysis-prompts.md`](docs/analysis-prompts.md) — a pruned prompt library where every prompt is allowed to find nothing
+3. [`03-jobs-mcp/README.md`](03-jobs-mcp/README.md) — the one-write-tool threat model, stated before code
+
+**How to verify:** every claim in the status table is one a reviewer can check by opening
+the directory. The [skill-to-evidence map](https://portfolio.hossainconsulting.com/#evidence) on the portfolio shows where each
+credential is applied, and the [hiring page](https://portfolio.hossainconsulting.com/#hire) says what I am open to.
+
 ## Related work
 
 The Salesforce side of this portfolio is available at
