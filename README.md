@@ -4,7 +4,7 @@ A self-directed AI engineering project exploring five tools for trades
 and home-services businesses: plumbing, electrical, HVAC, solar and
 appliance repair.
 
-> **Planning and scaffold stage — implementation has not started on main.**
+> **The five trades tools remain at the planning/scaffold baseline.**
 > These are proposed tools for fictional scenarios, not client work.
 > No real customer data is included.
 
@@ -31,6 +31,20 @@ The five projects below form a planned ten-week learning track, not completed de
 | [Jobs MCP Server](03-jobs-mcp/) | Provide database read tools and a validated booking write path | Not started |
 | [After-Hours Agent](04-after-hours-agent/) | Triage enquiries, support booking and escalate safety-critical scenarios | Not started |
 | [Eval Harness](05-evals/) | Evaluate the other tools against fixed cases and report quality, cost and regressions | Not started |
+
+## Beyond the five: Content DNA Studio
+
+[Content DNA Studio](content-dna-studio/README.md) adds a separate application
+for YouTube transcript analysis and drafting copy for ten distribution channels.
+Its source includes eight analysis prompts, accounts, workspaces, plan limits,
+usage metering and streamed output using SQLite storage.
+
+The prompts request title/timestamp citations and label unsupported suggestions
+as recommendations. The integration configures prompt caching; actual cache hits
+and savings require measurement. The project's README records prior mock-mode
+validation and the absence of live API verification. Those historical test results
+were not rerun during this README conflict resolution. Follow its setup and
+reverify provider model/API support before a live run.
 
 ## Design goals to validate
 
@@ -62,7 +76,8 @@ committed on main.
 
 ## Running the projects
 
-There is currently no runnable application on main.
+The five trades tools retain their placeholder setup instructions. Content DNA Studio
+has separate source and setup instructions in its own directory.
 
 Setup instructions, dependencies and required environment variables
 will be added with each implementation. Do not treat the placeholder
