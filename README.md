@@ -1,131 +1,124 @@
 # Home Services AI
 
-Five AI tools for trades and home-services businesses — plumbing, electrical,
-HVAC, solar, appliance repair. Built while working toward the **Claude Certified
-Developer — Foundations** credential.
+A self-directed AI engineering project exploring five tools for trades
+and home-services businesses: plumbing, electrical, HVAC, solar and
+appliance repair.
 
-> **These are working tools built against realistic scenarios, not client work.**
-> No real customer data appears anywhere in this repository.
+> **Planning and scaffold stage — implementation has not started on main.**
+> These are proposed tools for fictional scenarios, not client work.
+> No real customer data is included.
 
 **Built by:** [Hemayet Hossain](https://github.com/hossainconsulting) · Sydney, Australia
 **Portfolio:** [portfolio.hossainconsulting.com](https://portfolio.hossainconsulting.com)
 
----
+## Current status
 
-## Why these five
+As reviewed on 16 September 2026, the main branch contains the root
+README, five project README templates, placeholder files and `.gitignore`.
 
-A trades business loses money in the same four places: enquiries that never get
-quoted, work that never gets invoiced, jobs booked badly, and calls missed after
-hours. Each project takes one of those. The fifth proves the other four actually
-work.
+It does not yet contain implementation code, automated tests, recorded
+demos, evaluation datasets or measured results. Other branches and open
+pull requests have not been assessed in this review.
 
-| # | Project | What it does | Status |
-|---|---|---|---|
-| 1 | [Quote Triage](01-quote-triage/) | Turns a messy customer enquiry into a structured job spec — and says what it still needs to ask | Not started |
-| 2 | [Notes to Invoice](02-notes-to-invoice/) | Turns end-of-day job notes into a line-itemed draft invoice | Not started |
-| 3 | [Jobs MCP Server](03-jobs-mcp/) | Exposes a jobs and customer database to Claude over MCP, with one carefully guarded write path | Not started |
-| 4 | [After-Hours Agent](04-after-hours-agent/) | Triages an 11pm message, books the job or escalates to a human | Not started |
-| 5 | [Eval Harness](05-evals/) | Grades projects 1–4 across a fixed case set, tracks accuracy, cost and regressions | Not started |
+The five projects below form a planned ten-week learning track, not completed delivery.
 
-Status is updated as each ships. Anything marked *Not started* has no code behind
-it, and this table will say so until it does.
+## Planned tools
 
----
+| Project | Intended purpose | Status |
+| --- | --- | --- |
+| [Quote Triage](01-quote-triage/) | Turn an enquiry into a validated job specification and identify missing information | Not started |
+| [Notes to Invoice](02-notes-to-invoice/) | Turn job notes into a draft invoice using a rates table and deterministic calculations | Not started |
+| [Jobs MCP Server](03-jobs-mcp/) | Provide database read tools and a validated booking write path | Not started |
+| [After-Hours Agent](04-after-hours-agent/) | Triage enquiries, support booking and escalate safety-critical scenarios | Not started |
+| [Eval Harness](05-evals/) | Evaluate the other tools against fixed cases and report quality, cost and regressions | Not started |
 
-## The bits worth looking at
+## Design goals to validate
 
-Rather than a feature list, the three decisions in here that were actually hard:
+- **Explicit uncertainty:** request missing details rather than invent them.
+- **Reliable calculations:** calculate invoice amounts in code using
+  defined rates rather than relying on model arithmetic.
+- **Controlled writes:** validate booking requests, including availability,
+  dates and technician qualifications.
+- **Human escalation:** define and test escalation behaviour for
+  safety-critical scenarios.
+- **Evidence before claims:** publish test cases and measured results
+  before describing a tool as working or reliable.
 
-**Project 1 — the model is allowed to say it doesn't know.** A triage tool that
-invents a suburb is worse than one that returns "I need to ask the customer where
-they are." Missing information is a first-class output, not a failure.
+These are intended requirements, not implemented controls.
 
-**Project 3 — one write tool, and it validates everything.** Read tools are easy.
-Designing a booking path an agent cannot abuse — no double-booking, nothing in the
-past, no unqualified technician — is where the real work is. The threat model is
-documented, not implied.
+## Evidence planned for each tool
 
-**Project 4 — knowing when to stop.** Gas leak, live wiring, water through a
-ceiling: the correct response is a human, immediately. An agent that helpfully
-books a Tuesday slot for a gas leak is a liability, and the escalation cases are
-in the committed transcripts.
+Each project README will document:
 
----
+1. The business problem and scope.
+2. Design decisions and limitations.
+3. Reproducible setup and execution steps.
+4. Tests, failure cases and evaluation results.
+5. Measured cost and latency, with the model and test date.
+6. A short recorded demonstration once the tool works.
 
-## Demos are recorded, not hosted
+Recorded demos are the intended presentation format. None are currently
+committed on main.
 
-Every project here is demonstrated with a **short screen recording embedded in its
-README**, not a live hosted endpoint. That is a deliberate decision, not a
-shortcut:
+## Running the projects
 
-- A recording shows the tool working in about sixty seconds, which is what a
-  reviewer actually wants. Almost nobody wants to *use* a stranger's demo.
-- It costs nothing to serve and cannot be abused.
-- It keeps working after an API key is rotated, a model is renamed, or a
-  dependency drifts — the three things that quietly kill hosted demos.
+There is currently no runnable application on main.
 
-If a live demo is ever added, it will ask the visitor for their own API key,
-held in the browser and never stored.
+Setup instructions, dependencies and required environment variables
+will be added with each implementation. Do not treat the placeholder
+commands in the project READMEs as complete setup instructions.
 
-## Running it yourself
+## API usage and credentials
 
-Each project has its own README and setup. You supply your own Anthropic API key:
+Future implementations may require a separately billed API account.
+Check the provider's current pricing and account controls before running
+API-backed code.
 
-```bash
-export ANTHROPIC_API_KEY="sk-ant-..."
-```
+No per-call cost, evaluation budget or total project cost has been
+measured yet. Costs will depend on the chosen model, token usage,
+tool calls, retries and evaluation volume.
 
-**You pay for your own calls.** Cloning this repository costs nothing; running it
-bills your account, not mine. The tasks here are small — roughly 650 tokens in and
-250 out per call, which is about **$0.002 on Haiku 4.5** or **$0.009 on Opus 5**.
-A full eval sweep across 50 cases and three projects is about **30 cents** to
-**$1.30** depending on model.
+Use spending controls where available, monitor usage, and bound loops
+and retries in code. These measures reduce risk; they do not justify a
+guarantee that unexpected charges are impossible.
 
-Set a spend limit in the [Anthropic Console](https://console.anthropic.com) before
-you run anything. A runaway loop is the only way this gets expensive, and a hard
-cap makes that impossible.
+Keep API credentials out of source control, screenshots, recordings and
+logs. If a credential is committed, revoke or rotate it promptly.
 
-**Never commit your key.** `.env` and `*.key` are gitignored. A key that reaches
-git history has to be *rotated*, not merely deleted — the commit survives in every
-clone and in the reflog.
+## Working notes
 
-### This costs money — a little
-
-A Claude Pro or Max subscription covers *using* Claude Code. It does **not** cover
-API calls made by the code in this repository. Those are metered pay-as-you-go,
-billed per token, no free tier.
-
-At current rates — Haiku 4.5 at $1/$5 per million input/output tokens, Opus 5 at
-$5/$25 — the tasks here are small. A typical call is roughly 650 tokens in and 250
-out:
-
-| Model | Per call | Full eval run (50 cases × 3 projects) |
-|---|---|---|
-| Haiku 4.5 | ~$0.002 | ~$0.30 |
-| Opus 5 | ~$0.009 | ~$1.30 |
-
-**Realistic total for the whole 10-week track: $10–40**, including iteration and
-repeated eval runs.
-
-Four habits keep it there:
-
-1. **Set a spend limit in the Anthropic Console before writing any code.** A
-   runaway loop is the only way this gets expensive; a hard cap makes that
-   impossible.
-2. **Use the Batch API for evals** — 50% cheaper, and eval runs are not
-   latency-sensitive.
-3. **Cache stable prompts.** Cached input costs roughly a tenth. Project 1's
-   system prompt is byte-identical on every call.
-4. **Route by difficulty.** Project 2 exists partly to measure where Haiku is
-   genuinely sufficient and Opus is waste.
-
-The reasoning behind these, and the levers that come *before* choosing a cheaper model,
-are in [optimization-playbook.md](optimization-playbook.md).
-
----
+**[Analysis prompts](docs/analysis-prompts.md)** — a pruned and rewritten set of analysis
+prompts for trades work and Salesforce consulting, adapted from a circulated list of
+twenty. Six cut, one repurposed, five added. The change that matters: every prompt now
+gives the model permission to find nothing, because a prompt that asks for "the top 3 to 5
+root causes" gets three to five whether the evidence supports one or none.
 
 ## Related work
 
-The Salesforce side of the same problem — CRM implementations for the same kind of
-business — is at
+The Salesforce side of this portfolio is available at
 [portfolio.hossainconsulting.com](https://portfolio.hossainconsulting.com).
+
+
+## AI contributor credit
+
+**OpenAI Codex** is credited as an AI-assisted contributor (Chief of Engineer) for authorised
+repository work under Hemayet Hossain's direction. This includes assistance
+with documentation and repository maintenance; implementation or validation
+contributions are recorded in the relevant commits and task evidence.
+
+**Anthropic Claude Code** is also credited as an AI-assisted contributor (Chief of Staff) for
+authorised repository work under Hemayet Hossain's direction, including coding,
+writing and documentation. Commits it co-authored carry a
+`Co-Authored-By: Claude` trailer.
+
+Hemayet Hossain remains the project owner and decision-maker. These credits do
+not represent separate GitHub accounts or collaborator invitations, and do
+not change existing authorship, licensing or project completion claims.
+
+## Design notes
+
+[RAG maturity assessment](docs/rag-maturity.md) records the original design analysis of retrieval choices for the five proposed tools. It grades designs, not running implementations. Its API and pricing references are historical and require rechecking before implementation.
+
+## Optimization planning
+
+[optimization-playbook.md](optimization-playbook.md) preserves the original optimization analysis and its dated API/pricing references. Reverify those references before implementation; no savings or performance results have been measured by this conflict resolution. Measure cost per completed task, including retries, against evaluation quality.
