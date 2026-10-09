@@ -188,4 +188,6 @@ Built by **Hemayet Hossain**, Sydney, Australia. The portfolio links self-direct
 [All links](https://portfolio.hossainconsulting.com/links) ·
 [GitHub](https://github.com/hossainconsulting) ·
 [LinkedIn](https://www.linkedin.com/company/hossain-consulting) ·
-[Instagram](https://www.instagram.com/hossainconsulting/)
+[Instagram](https://www.instagram.com/hossainconsulting/) ·
+[Reddit (agency)](https://www.reddit.com/user/hossainconsulting/) ·
+[Reddit (personal)](https://www.reddit.com/user/hemayetAI/)
